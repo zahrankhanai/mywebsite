@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muhammad Zahran | Portfolio</title>
+<style>
+/* Reset */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Body */
+body{
+  background-color:#0a1a3a;
+  color:white;
+  line-height:1.6;
+  min-height:100vh;
+}
+
+/* Hero / Profile */
+.hero{
+  text-align:center;
+  padding:100px 20px 20px;
+}
+.hero img{
+  width:160px;
+  height:160px;
+  border-radius:50%;
+  border:4px solid #1e90ff;
+  box-shadow:0 0 20px #1e90ff;
+  margin-bottom:15px;
+}
+.hero h1{
+  font-size:42px;
+  margin-bottom:10px;
+  letter-spacing:1px;
+}
+.hero p{
+  color:#cfd8ff;
+  font-size:18px;
+  margin-bottom:20px;
+}
+
+/* Navbar */
+nav{
+  display:flex;
+  justify-content:center;
+  gap:25px;
+  background:#06112a;
+  padding:12px 0;
+  border-radius:12px;
+  margin:0 auto 40px;
+  width:fit-content;
+}
+nav a{
+  color:white;
+  text-decoration:none;
+  font-weight:600;
+  padding:5px 15px;
+  border-radius:8px;
+  transition:0.3s;
+}
+nav a:hover{
+  background:white;
+  color:#0a1a3a;
+}
+
+/* Sections */
+section{
+  max-width:1000px; /* WIDER CARDS */
+  margin:30px auto;
+  padding:10px 20px;
+}
+
+/* Card */
+.card{
+  background:white;
+  color:#0a1a3a;
+  border-radius:15px;
+  padding:25px;
+  margin-bottom:25px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.4);
+  transition:0.3s;
+}
+.card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 12px 30px rgba(30,144,255,0.6);
+}
+
+/* Titles */
+h2{
+  margin-bottom:15px;
+  font-size:24px;
+  color:#1e90ff;
+}
+
+/* List */
+ul li{
+  margin-bottom:8px;
+}
+
+/* Portfolio Grid */
+.portfolio{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:15px;
+}
+.project{
+  background:white;
+  color:#0a1a3a;
+  padding:18px;
+  border-radius:12px;
+  font-weight:600;
+  box-shadow:0 4px 15px rgba(0,0,0,0.3);
+  transition:0.3s;
+}
+.project:hover{
+  background:#1e90ff;
+  color:white;
+  transform:scale(1.04);
+}
+
+/* Buttons */
+button{
+  padding:10px 22px;
+  border:none;
+  border-radius:10px;
+  background:#1e90ff;
+  color:white;
+  cursor:pointer;
+  margin-top:12px;
+  transition:0.3s;
+  font-weight:600;
+}
+button:hover{
+  background:white;
+  color:#0a1a3a;
+}
+
+/* Footer */
+footer{
+  text-align:center;
+  padding:35px 20px;
+  background:#06112a;
+  color:white;
+}
+
+/* Whatsapp Icon Fixed */
+#whatsapp{
+  position:fixed;
+  bottom:25px;
+  right:25px;
+  width:60px;
+  height:60px;
+  background:#25D366;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 5px 20px rgba(0,0,0,0.5);
+  cursor:pointer;
+  transition:0.3s;
+  z-index:1000;
+}
+#whatsapp:hover{
+  transform:scale(1.1);
+}
+#whatsapp:after{
+  content:"📱";
+  font-size:28px;
+}
+
+/* Responsive */
+@media(max-width:600px){
+  nav{
+    flex-direction:column;
+  }
+  .portfolio{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<section class="hero" id="home">
+<img width="400" height="400" src="data:image/jpeg;base64,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" alt="Profile Picture">
+<h1>Muhammad Zahran</h1>
+<p>Frontend Developer | Web Developer | Programmer</p>
+</section>
+
+<!-- Navbar BELOW Hero -->
+<nav>
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#portfolio">Portfolio</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+<a href="#github">GitHub</a>
+<a href="#linkedin">LinkedIn</a>
+</nav>
+
+<!-- About -->
+<section id="about">
+<div class="card">
+<h2>About Me</h2>
+<p>I focus on clean, professional designs with a dark blue and white theme. I deliver responsive websites with clarity and modern aesthetics.</p>
+</div>
+</section>
+
+<!-- Skills -->
+<section id="skills">
+<div class="card">
+<h2>Skills</h2>
+<ul>
+<li>HTML5 & CSS3</li>
+<li>JavaScript & DOM Manipulation</li>
+<li>Responsive Web Design</li>
+<li>UI/UX Design Principles</li>
+<li>Performance Optimization</li>
+</ul>
+</div>
+</section>
+
+<!-- Portfolio -->
+<section id="portfolio">
+<div class="card">
+<h2>Portfolio</h2>
+<div class="portfolio">
+<div class="project">E-Commerce Website</div>
+<div class="project">Portfolio Website</div>
+<div class="project">Startup Landing Page</div>
+<div class="project">Corporate Website</div>
+</div>
+</div>
+</section>
+
+<!-- Projects -->
+<section id="projects">
+<div class="card">
+<h2>Projects Details</h2>
+<p>
+1️⃣ E-Commerce Website: Fully responsive store with payment integration.<br>
+2️⃣ Portfolio Website: Modern design with smooth animations.<br>
+3️⃣ Startup Landing Page: CTA-focused landing page.<br>
+4️⃣ Corporate Website: Professional interface for business.
+</p>
+</div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+<div class="card">
+<h2>Contact Me</h2>
+<p>📞 03155476709</p>
+<p>📧 zahran.khan.025@gmail.com</p>
+<p>Available for freelance & collaboration</p>
+<button onclick="alert('Thank you for contacting!')">Send Message</button>
+</div>
+</section>
+
+<!-- GitHub -->
+<section id="github">
+<div class="card">
+<h2>GitHub</h2>
+<p><a href="#" style="color:#1e90ff; font-weight:bold;">Visit My GitHub Profile</a></p>
+</div>
+</section>
+
+<!-- LinkedIn -->
+<section id="linkedin">
+<div class="card">
+<h2>LinkedIn</h2>
+<p><a href="#" style="color:#1e90ff; font-weight:bold;">Visit My LinkedIn Profile</a></p>
+</div>
+</section>
+
+<!-- Whatsapp -->
+<a href="https://wa.me/923155476709" target="_blank" id="whatsapp"></a>
+
+<!-- Footer -->
+<footer>
+© 2026 Muhammad Zahran | Professional Portfolio
+</footer>
+
+</body>
+</html>
